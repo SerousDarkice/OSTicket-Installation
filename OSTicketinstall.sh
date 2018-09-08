@@ -14,6 +14,9 @@ remiPGPKey2017=https://rpms.remirepo.net/RPM-GPG-KEY-remi2017
 remiPGPKey2018=https://rpms.remirepo.net/RPM-GPG-KEY-remi2018
 installPackages="mariadb mariadb-server httpd php70 php70-php-mysql php70-php-imap php70-php-xml php70-php-mbstring php70-php-pecl-apcu php70-php-pecl-zendopcache php70-php-intl php70-php-gd"
 serverFQDN=osticket.lab.ejs.llc
+OSTicketDownloadURL=http://osticket.com/sites/default/files/download/osTicket-v1.10.4.zip
+OSTicketZipFile=osTicket-v1.10.4.zip
+apacheOSTicketDir=/var/www/html/
 
 echo "Settting the hostname"
 
@@ -50,3 +53,15 @@ echo "Starting and enabling MariaDB"
 
 systemctl start mariadb
 systemctl enable mariadb
+
+echo "Downloading OSTicket"
+
+wget $OSTicketDownloadURL
+
+echo "Installing to $apacheOSTicketDir"
+
+unzip $OSTicketZipFile
+cp -rpv upload/* $apacheOSTicketDir
+chown -R apache:apache $apacheOSTicketDir
+cp $apacheOsTicketDir/include/ost-sampleconfig.php $apacheOSTicketDir/include/ost-config.php
+chmod 0666 $apacheOSTicketDir/include/ost-config.php
