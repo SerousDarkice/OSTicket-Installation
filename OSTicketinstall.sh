@@ -63,5 +63,5 @@ echo "Installing to $apacheOSTicketDir"
 unzip $OSTicketZipFile
 cp -rpv upload/* $apacheOSTicketDir
 chown -R apache:apache $apacheOSTicketDir
-cp $apacheOsTicketDir/include/ost-sampleconfig.php $apacheOSTicketDir/include/ost-config.php
+cp $apacheOSTicketDir/include/ost-sampleconfig.php $apacheOSTicketDir/include/ost-config.php
 chmod 0666 $apacheOSTicketDir/include/ost-config.php
