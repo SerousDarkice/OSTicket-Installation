@@ -13,6 +13,11 @@ remiPGPKey=https://rpms.remirepo.net/RPM-GPG-KEY-remi
 remiPGPKey2017=https://rpms.remirepo.net/RPM-GPG-KEY-remi2017
 remiPGPKey2018=https://rpms.remirepo.net/RPM-GPG-KEY-remi2018
 installPackages="mariadb mariadb-server httpd php70 php70-php-mysql php70-php-imap php70-php-xml php70-php-mbstring php70-php-pecl-apcu php70-php-pecl-zendopcache php70-php-intl php70-php-gd"
+serverFQDN=osticket.lab.ejs.llc
+
+echo "Settting the hostname"
+
+hostnamectl set-hostname $serverFQDN
 
 echo "Installing Remi's Repo for php 7.0"
 
