@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# Installing everything for OSTicket from a fresh system
+#Installing everything for OSTicket from a fresh, minimal install of Fedora 27
+
+#Credits
+#Remi for making older PHP available:  https://rpms.remirepo.net/
+#Scott Alan Miller for knowing what packages to install:  https://mangolassi.it/topic/11624/installing-osticket-1-10-on-centos-7
 
 # Let's set some variables
 
