@@ -29,4 +29,14 @@ echo "Installing Packages -- Thanks SAM for the list!"
 
 dnf install $installPackages -y
 
-echo "All done!"
+echo "All done installing dependencies"
+
+echo "Starting and Enabling Apache"
+
+systemctl start httpd
+systemctl enable httpd
+
+echo "Opening port 80 on the public firewall"
+
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --reload
