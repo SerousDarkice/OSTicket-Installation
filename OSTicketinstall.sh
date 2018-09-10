@@ -65,3 +65,8 @@ cp -rpv upload/* $apacheOSTicketDir
 cp $apacheOSTicketDir/include/ost-sampleconfig.php $apacheOSTicketDir/include/ost-config.php
 chmod 0666 $apacheOSTicketDir/include/ost-config.php
 chown -R apache:apache $apacheOSTicketDir
+
+echo "Script has completed.  Next you will need to configure MySQL."
+echo "Finally, load your webpage to complete the installation of OSTicket."
+echo "Enjoy!"
+echo ""
