@@ -33,7 +33,7 @@ rpm --import $remiPGPKey
 rpm --import $remiPGPKey2017
 rpm --import $remiPGPKey2018
 
-echo "Installing Packages -- Thanks SAM for the list!"
+echo "Installing Packages"
 
 dnf install $installPackages -y
 
@@ -65,6 +65,10 @@ cp -rpv upload/* $apacheOSTicketDir
 cp $apacheOSTicketDir/include/ost-sampleconfig.php $apacheOSTicketDir/include/ost-config.php
 chmod 0666 $apacheOSTicketDir/include/ost-config.php
 chown -R apache:apache $apacheOSTicketDir
+
+echo "Dealing with SELinux"
+
+chcon -t httpd_sys_rw_content_t $apacheOSTicketDir -R
 
 echo "Script has completed.  Next you will need to configure MySQL."
 echo "Finally, load your webpage to complete the installation of OSTicket."
