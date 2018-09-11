@@ -54,8 +54,9 @@ echo "Starting and enabling MariaDB"
 systemctl start mariadb
 systemctl enable mariadb
 
-echo "Downloading OSTicket"
+echo "Downloading OSTicket to /tmp"
 
+cd /tmp/
 wget $OSTicketDownloadURL
 
 echo "Installing to $apacheOSTicketDir"
